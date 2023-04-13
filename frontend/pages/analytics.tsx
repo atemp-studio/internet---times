@@ -56,8 +56,8 @@ export async function getStaticProps() {
   const rightAds = await client.fetch(`*[_type == "rightAdBar"]`)
 
   return {
+    revalidate: 10,
     props: {
-      revalidate: 10,
       page,
       leftAds,
       rightAds,

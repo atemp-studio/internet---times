@@ -62,8 +62,8 @@ export async function getStaticProps(context: any) {
   const posts = await client.fetch(postsQuery, { slug })
 
   return {
+    revalidate: 10,
     props: {
-      revalidate: 10,
       leftAds,
       rightAds,
       posts,
