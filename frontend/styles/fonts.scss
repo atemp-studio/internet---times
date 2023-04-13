@@ -1,0 +1,17 @@
+@font-face {
+	font-family: "MS Sans Serif";
+	src: url("../fonts/ms_sans_serif.woff2") format("woff2"),
+	     url("../fonts/ms_sans_serif.woff") format("woff"),
+	     url("../fonts/MS Sans Serif.ttf") format("truetype");
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: "MS Sans Serif";
+	src: url("../fonts/ms_sans_serif_bold.woff2") format("woff2"),
+	     url("../fonts/ms_sans_serif_bold.woff") format("woff"),
+	     url("../fonts/MS Sans Serif Bold.ttf") format("truetype");
+	font-weight: bold;
+}
+
+$ms-sans-serif: "MS Sans Serif", Arial, Helvetica, sans-serif;

@@ -1,0 +1,119 @@
+aside {
+	position: fixed;
+	display: flex;
+	padding: 8px;
+	align-items: stretch;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: var(--side-nav-width);
+
+	@media (max-width: 900px) {
+		display: none;
+	}
+
+	> ul {
+		display: block;
+		font-family: $ms-sans-serif;
+		font-size: 0.75em;
+		background: #ffffff;
+		box-shadow: #808080;
+		padding: 6px 7px;
+		margin: 0;
+		box-shadow: inset -1px -1px #fff, inset 1px 1px grey, inset -2px -2px #dfdfdf, inset 2px 2px #0a0a0a;
+		width: calc(var(--side-nav-width) - 20px);
+		overflow-y: scroll;
+
+		@media (max-width: 1300px) {
+			font-size: 0.7em;
+		}
+
+		ul, li {
+			margin-top: 3px;
+		}
+
+		ul {
+			margin-left: 16px;
+			padding-left: 16px;
+			border-left: 1px dotted #808080;
+
+			> li {
+				position: relative;
+			}
+
+			> li::before {
+				content: "";
+				display: block;
+				position: absolute;
+				left: -16px;
+				top: 6px;
+				width: 12px;
+				border-bottom: 1px dotted #808080;
+			}
+
+			> li:last-child::after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: -20px;
+				top: 7px;
+				bottom: 0px;
+				width: 8px;
+				background: #ffffff;
+			}
+		}
+
+		li {
+			list-style-type: none;
+
+			a {
+				text-decoration: none;
+				color: black;
+			}
+		}
+	}
+
+	::-webkit-scrollbar {
+		width: 16px;
+	}
+	::-webkit-scrollbar:horizontal {
+		height: 17px;
+	}
+
+	::-webkit-scrollbar-corner {
+		background: #dfdfdf;
+	}
+
+	::-webkit-scrollbar-track {
+		background-image: url("../static/scrollbar-background.svg");
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: #dfdfdf;
+		box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+	}
+
+	::-webkit-scrollbar-button:horizontal:start:decrement,
+	::-webkit-scrollbar-button:horizontal:end:increment,
+	::-webkit-scrollbar-button:vertical:start:decrement,
+	::-webkit-scrollbar-button:vertical:end:increment {
+		display: block;
+	}
+
+	::-webkit-scrollbar-button:vertical:start {
+		height: 17px;
+		background-image: url("../static/button-up.svg");
+	}
+	::-webkit-scrollbar-button:vertical:end {
+		height: 17px;
+		background-image: url("../static/button-down.svg");
+	}
+	::-webkit-scrollbar-button:horizontal:start {
+		width: 16px;
+		background-image: url("../static/button-left.svg");
+	}
+	::-webkit-scrollbar-button:horizontal:end {
+		width: 16px;
+		background-image: url("../static/button-right.svg");
+	}
+}

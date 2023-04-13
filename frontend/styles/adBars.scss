@@ -1,0 +1,22 @@
+.ab {
+	display: block;
+	margin-bottom: 2em;
+
+	@media (max-width: 900px) {
+		display: none;
+	}
+
+	img {
+		width: 100%;
+	}
+}
+
+#left-ab {
+	float: left;
+	width: var(--ad-bar-width);
+}
+
+#right-ab {
+	float: right;
+	width: var(--ad-bar-width);
+}

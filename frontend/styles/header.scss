@@ -1,0 +1,127 @@
+header {
+	position: fixed;
+	top: 0px;
+	margin: 0 0 2.5em calc(var(--side-nav-width) + 2px);
+	padding: 8px 2em 0 calc(2em - 2px);
+	background-color: #c0c0c0;
+	min-width: calc(100% - var(--side-nav-width) - 4em);
+	z-index: 100;
+
+	@media (max-width: 900px) {
+		position: relative;
+		margin: 0;
+		padding: 8px 1.4em 0 1.4em;
+	}
+	
+	.tradingview-widget-container {
+		display: block;
+		min-height: 44px;
+	}
+
+	#main-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		@media (max-width: 900px) {
+			flex-direction: column;
+		}
+
+		* {
+			display: inline-block;
+		}
+
+		#site-info {
+			max-width: 17vw;
+
+			@media (max-width: 900px) {
+				display: none;
+			}
+
+			> a {
+				font-family: $ms-sans-serif;
+				font-weight: bold;
+				font-size: 0.94vw;
+				color: #000;
+
+				> p {
+					margin: 0 0 0.25em 0;
+				}
+			}
+
+			> p {
+				margin: 0;
+				font-size: 0.75vw;
+
+				a {
+					color: #000;
+
+					&:hover {
+						color: cyan;
+						background-color: yellow;
+					}
+				}
+			}
+		}
+
+		#wordmark {
+			width: 35vw;
+			height: auto;
+
+			@media (max-width: 900px) {
+				width: 100%;
+			}
+		}
+
+		#slogan {
+			max-width: 6.4vw;
+			font-family: Arial, Helvetica, sans-serif;
+			font-size: 0.8vw;
+
+			@media (max-width: 1300px) {
+				display: none;
+			}
+		}
+
+		#lvmh-publishing {
+			width: 9vw;
+			height: auto;
+
+			@media (max-width: 900px) {
+				display: none;
+			}
+		}
+
+		#weather {
+			width: 12vw;
+			height: auto;
+
+			@media (max-width: 900px) {
+				display: none;
+			}
+		}
+	}
+
+	#mobile-subheader {
+		display: none;
+
+		@media (max-width: 900px) {
+			display: block;	
+			width: 100%;
+
+			p {
+				margin: 0;
+				font-family: Arial, Helvetica, sans-serif;
+				text-align: center;
+			}
+		}
+	}
+
+	hr {
+		margin: 1em 0 0 0;
+		border: none;
+		height: 1px;
+		opacity: 0.5;
+		background: linear-gradient(to right, red 20%, yellow 20%, yellow 36%, green 36%, green 60%, blue 60%, blue 100%);
+	}
+}
