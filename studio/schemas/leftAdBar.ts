@@ -20,6 +20,11 @@ export default defineType({
       title: 'Link',
       type: 'text',
     }),
+    defineField({
+      name: 'sentBy',
+      title: 'Sent By',
+      type: 'string',
+    })
 	],
   preview: {
     select: {
