@@ -11,9 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const header = document.querySelector('header');
     if (header) {
-      if (window.innerWidth < 900) {
-        setHeaderHeight("1.5em");
-      } else if (window.innerWidth < 1300) {
+      if (window.innerWidth < 1300) {
         setHeaderHeight(`calc(${header.offsetHeight}px + 1.5em)`);
       } else {
         setHeaderHeight(`calc(${header.offsetHeight}px + 2em)`);
@@ -22,9 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
     function handleResize() {
       if (header) {
-        if (window.innerWidth < 900) {
-          setHeaderHeight("1.5em");
-        } else if (window.innerWidth < 1300) {
+        if (window.innerWidth < 1300) {
           setHeaderHeight(`calc(${header.offsetHeight}px + 1.5em)`);
         } else {
           setHeaderHeight(`calc(${header.offsetHeight}px + 2em)`);

@@ -8,9 +8,12 @@ header {
 	z-index: 100;
 
 	@media (max-width: 900px) {
-		position: relative;
 		margin: 0;
-		padding: 8px 1.4em 0 1.4em;
+		padding: 8px 0 0 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: calc(100% - 2.8em);
+		max-width: 750px;
 	}
 	
 	.tradingview-widget-container {

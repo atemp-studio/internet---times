@@ -1,5 +1,9 @@
 .post {
-	margin-bottom: 2em;
+	margin-bottom: 2.5em;
+
+	@media (max-width: 900px) {
+		margin-bottom: 2em;
+	}
 
 	.post-image {
 		display: block;
@@ -45,7 +49,7 @@
 		line-height: 1.25em;
 
 		@media (max-width: 1300px) {
-			font-size: 0.85em;
+			font-size: 0.9em;
 			line-height: 1.2em;
 		}
 
@@ -66,4 +70,8 @@
 			content: "↝ ";
 		}
 	}
+}
+
+.single-post-wrapper .permalink {
+	display: none;
 }

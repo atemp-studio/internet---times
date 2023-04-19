@@ -28,7 +28,9 @@ const Post: NextPage<Props> = ({ leftAds, rightAds, posts }) => {
         ogImageURL={urlFor(posts[0].mainImage).size(1200, 630).fit("crop").url()}
       />
 
-      <Wrapper body={null} leftAds={leftAds} rightAds={rightAds} posts={posts} fallbackText="Post not found."/>
+      <div className="single-post-wrapper">
+        <Wrapper body={null} leftAds={leftAds} rightAds={rightAds} posts={posts} fallbackText="Post not found."/>
+      </div>
     </div>
   )
 }
