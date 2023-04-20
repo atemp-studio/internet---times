@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { NextPage } from 'next'
 import { PortableText } from '@portabletext/react'
+import { useEffect } from 'react';
 import crypto from 'crypto'
 
 import { ptComponents } from "../helpers/ptComponents";
@@ -23,7 +24,45 @@ interface Props {
 	fallbackText: string,
 }
 
+function applyShiftStyle() {
+  const labeledImages = document.querySelectorAll('.labeled-image');
+  labeledImages.forEach((labeledImage) => {
+    const initialLeftValue = (labeledImage as HTMLElement).dataset.initialLeft;
+    let randomShift = Math.random() * 6 - 3;
+    if (window.innerWidth < 900) {
+      randomShift = Math.random() * 4 - 1.5;
+    }
+    const style = {
+      "left": `calc(${initialLeftValue} - ${randomShift}vw)`,
+    };
+    (labeledImage as HTMLElement).style.cssText = Object.entries(style)
+      .map(([prop, val]) => `${prop}: ${val};`)
+      .join(' ');
+  });
+}
+
+function storeInitialLeftValues() {
+  const labeledImages = document.querySelectorAll('.labeled-image');
+  labeledImages.forEach((labeledImage) => {
+    const computedStyle = window.getComputedStyle(labeledImage as HTMLElement);
+    const leftValue = computedStyle.getPropertyValue('left');
+    (labeledImage as HTMLElement).dataset.initialLeft = leftValue;
+  });
+}
+
+
 export const Wrapper: NextPage<Props> = ({ leftAds, rightAds, body, posts, fallbackText }) => {
+	useEffect(() => {
+		storeInitialLeftValues();
+    applyShiftStyle();
+
+		window.addEventListener('resize', applyShiftStyle);
+
+    return () => {
+      window.removeEventListener('resize', applyShiftStyle);
+    };
+  }, []);
+
 	return (
 		<div id="wrapper">
 			<section id="main-content">
@@ -55,10 +94,14 @@ export const Wrapper: NextPage<Props> = ({ leftAds, rightAds, body, posts, fallb
 									</Link>
 
 									<div className="post-body">
-										<PortableText
-											value={body}
-											components={ptComponents}
-										/>
+										{body ? (
+											<PortableText
+												value={body}
+												components={ptComponents}
+											/>
+										) : (
+											<p>Still gotta write this&hellip; oops.</p>
+										)}
 									</div>
 
 									<ul className="post-links">

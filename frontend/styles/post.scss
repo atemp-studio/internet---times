@@ -56,6 +56,99 @@
 		p:first-of-type {
 			margin-top: 0.85em;
 		}
+
+		.labeled-image {
+			position: relative;
+			background: #c0c0c0;
+			box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px grey, inset 2px 2px #fff;
+			padding: 3px;
+			margin: 1em 0 1.2em 0;
+			left: 25%;
+			width: 50%;
+
+			@media (max-width: 900px) {
+				left: 10%;
+				width: 80%;
+			}
+
+			.title-bar {
+				align-items: center;
+				background: linear-gradient(90deg,navy,#1084d0);
+				display: flex;
+				justify-content: space-between;
+				padding: 2px;
+
+				.title-bar-text {
+					display: inline;
+					font-family: $ms-sans-serif;
+					color: #fff;
+					font-weight: 700;
+					font-size: 0.8em;
+					letter-spacing: 0;
+					margin: 0 24px 0 4px;
+				}
+
+				.title-bar-controls {
+					display: flex;
+
+					button {
+						display: block;
+						background-color: silver;
+						min-height: 15px;
+						min-width: 16px;
+						padding: 0;
+						border: none;
+						box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
+
+						&:active {
+							box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+							text-shadow: 1px 1px #222222;
+						}
+					}
+
+					button[aria-label=Minimize] {
+						background-image: url(../static/minimize.svg);
+						background-position: bottom 4.5px left 4px;
+						background-repeat: no-repeat;
+
+						&:active {
+							background-position: bottom 3.5px left 5px;
+						}
+					}
+
+					button[aria-label=Maximize] {
+						background-image: url(../static/maximize.svg);
+						background-position: top 2.5px left 3px;
+						background-repeat: no-repeat;
+						margin-left: 2px;
+
+						&:active {
+							background-position: top 3.5px left 4px;
+						}
+					}
+
+					button[aria-label=Close] {
+						background-image: url(../static/close.svg);
+						background-position: top 3.5px left 3.5px;
+						background-repeat: no-repeat;
+						margin-left: 2px;
+
+						&:active {
+							background-position: top 4.5px left 4.5px;
+						}
+					}
+				}
+			}
+
+			.window-body {
+				display: flex;
+
+				img {
+					position: relative;
+					width: 100%;
+				}
+			}
+		}
 	}
 
 	.post-links {

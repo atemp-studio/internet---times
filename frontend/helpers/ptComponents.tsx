@@ -31,11 +31,17 @@ export const ptComponents = {
       const [w, h] = url.split("-")[1].split(".")[0].split("x")
       return (
         <div className={`labeled-image ${parseInt(h) > parseInt(w) ? 'portrait' : ''}`}>
-          <img alt={value.label.toString() || ' '} loading="lazy" src={url}/>
-          <PortableText
-            value={value.label}
-            components={ptComponents}
-          />
+          <div className="title-bar">
+            <div className="title-bar-text">{value.label?.toString() ?? "Untitled"}</div>
+            <div className="title-bar-controls">
+              <button aria-label="Minimize"></button>
+              <button aria-label="Maximize"></button>
+              <button aria-label="Close"></button>
+            </div>
+          </div>
+          <div className="window-body">
+            <img alt={value.label?.toString() ?? ""} loading="lazy" src={url}/>
+          </div>
         </div>
       )
     },

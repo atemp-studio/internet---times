@@ -18,15 +18,7 @@ export default defineType({
     defineField({
       name: 'label',
       title: 'Label',
-      type: 'array',
-      of: [
-        {
-          title: 'Block',
-          type: 'block',
-          styles: [{title: 'Normal', value: 'normal'}],
-          lists: [],
-        },
-      ],
+      type: 'string',
     }),
   ],
 })
