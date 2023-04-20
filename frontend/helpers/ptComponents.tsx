@@ -1,5 +1,4 @@
 import { urlFor } from "./urlFor"
-import { PortableText } from "@portabletext/react"
 import { TypedObject } from "@portabletext/types"
 
 interface labeledImageType {
@@ -27,7 +26,7 @@ export const ptComponents = {
       if (!value?.image?.asset?._ref) {
         return null
       }
-      const url = urlFor(value.image).width(1500).url()
+      const url = urlFor(value.image).width(500).url()
       const [w, h] = url.split("-")[1].split(".")[0].split("x")
       return (
         <div className={`labeled-image ${parseInt(h) > parseInt(w) ? 'portrait' : ''}`}>
